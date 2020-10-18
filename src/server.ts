@@ -1,8 +1,8 @@
+import 'dotenv/config';
 import express from 'express'
 import path from 'path'
 import cors from 'cors'
 import 'express-async-errors'
-import 'dotenv/config';
 
 import './database/connection'
 import errorHandler from './errors/handler'
