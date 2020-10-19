@@ -63,7 +63,7 @@ export default {
                 Yup.object().shape({
                     path: Yup.string().required()
                 })
-            )
+            ).required().min(1),
         })
 
         await schema.validate(data, {
@@ -73,6 +73,7 @@ export default {
         const orphanage = OrphanagesRepository.create(data)
         
         await OrphanagesRepository.save(orphanage)
-        return response.status(201).json(orphanage)
+
+        return response.status(201).json(orphanageView.render(orphanage))
     }
 }
